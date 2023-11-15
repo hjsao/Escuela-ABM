@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista de alumnos</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/volver}">Volver</a>
+			</div>
+		</div>
+	</nav>
+	
+	<br>
+	<br>
+	
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-md-6 col-md-offset-3">
+				<hr>
+				
+				<h1>Lista de alumnos</h1>
+				<br>
+				<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Documento</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Año</th>
+						<th>División</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="alumno: ${alumnos}">
+						<td th:text="${alumno.getAlumno_document()}">
+						<td th:text="${alumno.getAlumno_name()}">
+						<td th:text="${alumno.getAlumno_surname()}" />
+						<td th:text="${alumno.getAlumno_anio()}" />
+						<td th:text="${alumno.getAlumno_division}" />
+					</tr>
+				</tbody>
+				
+			</table>
+					<a th:href="@{/volver}">Volver</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
